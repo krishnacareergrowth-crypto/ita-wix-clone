@@ -1,0 +1,6 @@
+# Netlify redirects
+/service-page/group-trainings  /service-page-group-trainings.html  200
+/service-page/living-without-limits  /service-page-living-without-limits.html  200
+/post/successful-events  /post-successful-events.html  200
+/post/success-videoes  /post-success-videoes.html  200
+/post/success-stories  /post-success-stories.html  200

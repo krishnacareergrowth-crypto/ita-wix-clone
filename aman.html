@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Indian Transformation Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #FFFFFF;
+            color: #273347;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: #355a82;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .logo-text {
+            color: #FDB813;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .header .logo-text span {
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+        .header nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .header nav a:hover { color: #FDB813; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #355a82 0%, #273347 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(253,184,19,0.08) 0%, transparent 60%);
+        }
+        .hero h1 {
+            color: #FFFFFF;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .hero h1 span { color: #FDB813; }
+        .hero p {
+            color: rgba(255,255,255,0.85);
+            font-size: 20px;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            position: relative;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #FDB813;
+            color: #273347;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 50px 40px;
+            background: #FFFFFF;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .number {
+            font-size: 42px;
+            font-weight: 800;
+            color: #04723D;
+        }
+        .stat .label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #355a82;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .section h2 span { color: #FDB813; }
+
+        /* Cards Grid */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid #FDB813;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #273347;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .card .icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        /* Pages List */
+        .pages-section {
+            background: #f8f9fa;
+            padding: 60px 40px;
+        }
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 1100px;
+            margin: 30px auto 0;
+        }
+        .page-link {
+            display: block;
+            background: #FFFFFF;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #355a82;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .page-link:hover {
+            background: #355a82;
+            color: #FFFFFF;
+            border-color: #355a82;
+        }
+        .page-link .arrow { float: right; }
+
+        /* Footer */
+        .footer {
+            background: #273347;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+        }
+        .footer a { color: #FDB813; text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .stats { flex-direction: column; gap: 30px; }
+            .cards { grid-template-columns: 1fr; }
+            .pages-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-text">Indian Transformation <span>Academy</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about-3-1.html">About</a>
+            <a href="masterclass.html">Masterclass</a>
+            <a href="landing-page.html">Programs</a>
+            <a href="contact-1.html">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Welcome to <span>Indian Transformation Academy</span></h1>
+        <p>Your complete digital presence — cloned, optimized, and ready for the next phase of growth.</p>
+        <div class="badge">✦ Website Clone — Live & Ready</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat">
+            <div class="number">23</div>
+            <div class="label">Pages Cloned</div>
+        </div>
+        <div class="stat">
+            <div class="number">100%</div>
+            <div class="label">Pixel Perfect</div>
+        </div>
+        <div class="stat">
+            <div class="number">0</div>
+            <div class="label">Wix Dependencies</div>
+        </div>
+        <div class="stat">
+            <div class="number">∞</div>
+            <div class="label">Scalability</div>
+        </div>
+    </div>
+
+    <!-- What's Included -->
+    <div class="section">
+        <h2>What's <span>Included</span></h2>
+        <div class="cards">
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Exact Visual Clone</h3>
+                <p>Every page, section, image, and design element captured exactly as it appears on your Wix site.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📱</div>
+                <h3>Mobile Responsive</h3>
+                <p>Scales perfectly on phones, tablets, and desktops — same experience across all devices.</p>
+            </div>
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Fast Loading</h3>
+                <p>Hosted on Netlify's global CDN — no Wix overhead, faster load times worldwide.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🔗</div>
+                <h3>All Internal Links</h3>
+                <p>Navigation, dropdowns, and page links all work — seamless browsing experience.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🎬</div>
+                <h3>YouTube Videos</h3>
+                <p>All embedded YouTube videos play directly — testimonials, courses, and event recordings.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🗺️</div>
+                <h3>Google Maps</h3>
+                <p>Interactive Google Maps embed on the contact page — visitors find your academy easily.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Pages -->
+    <div class="pages-section">
+        <div class="section" style="padding-top:0;padding-bottom:0;">
+            <h2>All <span>Pages</span></h2>
+        </div>
+        <div class="pages-grid">
+            <a href="index.html" class="page-link">🏠 Home <span class="arrow">→</span></a>
+            <a href="about-3-1.html" class="page-link">ℹ️ About Us <span class="arrow">→</span></a>
+            <a href="about-3.html" class="page-link">📖 About (Alt) <span class="arrow">→</span></a>
+            <a href="landing-page.html" class="page-link">🚀 Landing Page <span class="arrow">→</span></a>
+            <a href="masterclass.html" class="page-link">🎓 Masterclass <span class="arrow">→</span></a>
+            <a href="career.html" class="page-link">💼 Career <span class="arrow">→</span></a>
+            <a href="team-3.html" class="page-link">👥 Our Team <span class="arrow">→</span></a>
+            <a href="blog.html" class="page-link">📝 Blog <span class="arrow">→</span></a>
+            <a href="faqs.html" class="page-link">❓ FAQs <span class="arrow">→</span></a>
+            <a href="contact-1.html" class="page-link">📞 Contact <span class="arrow">→</span></a>
+            <a href="book-online.html" class="page-link">📅 Book Online <span class="arrow">→</span></a>
+            <a href="plans-pricing.html" class="page-link">💰 Plans & Pricing <span class="arrow">→</span></a>
+            <a href="challenges.html" class="page-link">🏆 Challenges <span class="arrow">→</span></a>
+            <a href="menu-course-1.html" class="page-link">📚 Course Menu <span class="arrow">→</span></a>
+            <a href="post-success-stories.html" class="page-link">⭐ Success Stories <span class="arrow">→</span></a>
+            <a href="post-success-videoes.html" class="page-link">🎥 Success Videos <span class="arrow">→</span></a>
+            <a href="post-successful-events.html" class="page-link">🎪 Events <span class="arrow">→</span></a>
+            <a href="service-page-group-trainings.html" class="page-link">👨‍👩‍👧‍👦 Group Training <span class="arrow">→</span></a>
+            <a href="service-page-living-without-limits.html" class="page-link">🌟 Living Without Limits <span class="arrow">→</span></a>
+            <a href="privacypolicy.html" class="page-link">🔒 Privacy Policy <span class="arrow">→</span></a>
+            <a href="terms-conditions.html" class="page-link">📋 Terms & Conditions <span class="arrow">→</span></a>
+            <a href="refund-cancellations.html" class="page-link">↩️ Refund Policy <span class="arrow">→</span></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Indian Transformation Academy — Website Clone on <a href="https://www.netlify.com" target="_blank">Netlify</a></p>
+        <p style="margin-top:8px;font-size:11px;">Original: <a href="https://www.indiantransformationacademy.com" target="_blank">indiantransformationacademy.com</a></p>
+    </div>
+
+</body>
+</html>
